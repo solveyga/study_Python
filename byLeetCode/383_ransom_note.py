@@ -1,19 +1,15 @@
 """
 https://leetcode.com/problems/ransom-note/solutions/5821388/video-counting-each-character-2-solutions
 """
-
+from collections import Counter
 
 def canConstruct(ransomNote: str, magazine: str) -> bool:
-    magazine_dict = {}
+    ransom_count = Counter(ransomNote)
+    magazine_count = Counter(magazine)
 
-    for c in magazine:
-        magazine_dict[c] = 1 + magazine_dict.get(c, 0)
-
-    for c in ransomNote:
-        if c not in magazine_dict or magazine_dict[c] <= 0:
+    for letter, count in ransom_count.items():
+        if magazine_count[letter] < count:
             return False
-        magazine_dict[c] -= 1
-
     return True
 
 """
