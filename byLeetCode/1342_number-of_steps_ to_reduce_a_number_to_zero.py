@@ -55,7 +55,6 @@ assert numberOfSteps(-5) == 0
 # Ноль - целое число за пределами гарантированного ввода.
 assert numberOfSteps(0) == 0
 
-
 # Нечисловой тип данных.
 class TestInvalidInput(unittest.TestCase):
 
@@ -66,7 +65,6 @@ class TestInvalidInput(unittest.TestCase):
     def test_none(self):
         with self.assertRaises(TypeError):
             numberOfSteps(None)
-
 
 # Вещественное число в альтернативной нотации.
 assert numberOfSteps(10e2) == 15
