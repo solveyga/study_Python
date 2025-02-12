@@ -9,6 +9,7 @@ answer[i] == i (as a string) if none of the above conditions are true.
 
 import unittest
 
+
 def fizzBuzz(n: int) -> list[str]:
     """
     Функция принимает целое число и проверяет, какие числа от 1 до n делятся на 3 и на 5.
@@ -18,65 +19,124 @@ def fizzBuzz(n: int) -> list[str]:
     :return: list[str]
     """
     return [
-        "FizzBuzz" if i % 3 == 0 and i % 5 == 0 else
-        "Fizz" if i % 3 == 0 else
-        "Buzz" if i % 5 == 0 else
-        str(i)
-        for i in range(1, n+1)
+        (
+            "FizzBuzz"
+            if i % 3 == 0 and i % 5 == 0
+            else "Fizz" if i % 3 == 0 else "Buzz" if i % 5 == 0 else str(i)
+        )
+        for i in range(1, n + 1)
     ]
 
 
-"""
-Позитивные тесты
-"""
+# Позитивные тесты
 
-"""Тест с первым встречающимся делимым 15."""
-assert fizzBuzz(15) == ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']
+# Тест с первым встречающимся делимым 15.
+assert fizzBuzz(15) == [
+    "1",
+    "2",
+    "Fizz",
+    "4",
+    "Buzz",
+    "Fizz",
+    "7",
+    "8",
+    "Fizz",
+    "Buzz",
+    "11",
+    "Fizz",
+    "13",
+    "14",
+    "FizzBuzz",
+]
 
-"""Тест нескольких делимых 15, FizzBuzz не только в первом и последнем блоке."""
-assert fizzBuzz(45) == ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz',
-                        '16', '17', 'Fizz', '19', 'Buzz', 'Fizz', '22', '23', 'Fizz', 'Buzz', '26', 'Fizz', '28', '29', 'FizzBuzz',
-                        '31', '32', 'Fizz', '34', 'Buzz', 'Fizz', '37', '38', 'Fizz', 'Buzz', '41', 'Fizz', '43', '44', 'FizzBuzz']
+# Тест нескольких делимых 15, FizzBuzz не только в первом и последнем блоке.
+assert fizzBuzz(45) == [
+    "1",
+    "2",
+    "Fizz",
+    "4",
+    "Buzz",
+    "Fizz",
+    "7",
+    "8",
+    "Fizz",
+    "Buzz",
+    "11",
+    "Fizz",
+    "13",
+    "14",
+    "FizzBuzz",
+    "16",
+    "17",
+    "Fizz",
+    "19",
+    "Buzz",
+    "Fizz",
+    "22",
+    "23",
+    "Fizz",
+    "Buzz",
+    "26",
+    "Fizz",
+    "28",
+    "29",
+    "FizzBuzz",
+    "31",
+    "32",
+    "Fizz",
+    "34",
+    "Buzz",
+    "Fizz",
+    "37",
+    "38",
+    "Fizz",
+    "Buzz",
+    "41",
+    "Fizz",
+    "43",
+    "44",
+    "FizzBuzz",
+]
 
-"""Тест с минимальным n."""
+# Тест с минимальным n.
 assert fizzBuzz(1) == ["1"]
 
-"""
-Негативные тесты
-"""
+# Негативные тесты
 
-"""Тест нулевого n."""
+# Тест нулевого n.
 assert fizzBuzz(0) == []
 
-"""Тест дробного n."""
+
+# Тест дробного n.
 class TestFloatN(unittest.TestCase):
     def test_float_n(self):
         with self.assertRaises(TypeError):
             fizzBuzz(2.5)
 
-"""Тест отрицательного n."""
+
+# Тест отрицательного n.
 assert fizzBuzz(-5) == []
 
-"""Тест нечислового n."""
+
+# Тест нечислового n.
 class TestStringN(unittest.TestCase):
     def test_string_n(self):
         with self.assertRaises(TypeError):
             fizzBuzz("2.5")
 
 
-"""
-Остальные негативные тесты
-"""
+# Остальные негативные тесты
 
-"""Тест для None."""
+
+# Тест для None.
 class TestNoneN(unittest.TestCase):
     def test_none_n(self):
         with self.assertRaises(TypeError):
             fizzBuzz(None)
 
-"""Тест для True, которое интерпретируется как 1."""
+
+# Тест для True, которое интерпретируется как 1.
 assert fizzBuzz(True) == ["1"]
 
-"""Тест для False, которое интерпретируется как 0."""
+# Тест для False, которое интерпретируется как 0.
 assert fizzBuzz(False) == []
-
