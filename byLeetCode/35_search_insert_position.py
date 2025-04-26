@@ -7,10 +7,15 @@ nums contains distinct values sorted in ascending order.
 -10^4 <= target <= 10^4
 """
 
-import random
-
 
 def searchInsert(nums: list[int], target: int) -> int:
+    """
+    Функция принимает отсортированный список целых чисел и искомое число и возвращаает позицию искомого числа,
+    если оно есть  в списке или если бы оно было в списке.
+    :param nums: отсортированный список целых чисел
+    :param target: искомое число
+    :return: позиция искомого числа
+    """
     left = 0
     right = len(nums) - 1
     while left != right:
