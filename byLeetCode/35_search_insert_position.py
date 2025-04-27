@@ -1,5 +1,5 @@
 """
-Задача: https://leetcode.com/problems/search-insert-position/description/
+Задача: https://leetcode.com/   problems/search-insert-position/description/
 Ограничения:
 1 <= nums.length <= 10^4
 -10^4 <= nums[i] <= 10^4
